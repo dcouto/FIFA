@@ -1,0 +1,58 @@
+@import "normalize.less";
+@import "mixins.less";
+
+body {
+	background-color: #FFFFFF;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+a {
+	color: #999999;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.clear {
+	clear: both;
+}
+
+.shadow-wrapper {
+	background: #FFFFFF url(../images/shadow.jpg) repeat-y 0 0;
+	margin: 0 auto;
+	width: 1064px;
+}
+
+.outer-wrapper {
+	margin: 0 auto;
+	width: 1024px;
+}
+
+.global-header {
+	padding: 20px;
+
+	img {
+		float: left;
+	}
+
+	nav {
+		font-size: 2em;
+		padding: 128px 0 0 200px;
+
+		ul {
+			.unbullet-list();
+
+			li {
+				float: left;
+
+				&.separator {
+					margin: 0 20px;
+				}
+			}
+		}
+	}
+}

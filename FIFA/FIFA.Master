@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="FIFA.master.cs" Inherits="FIFA.FIFA" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head runat="server">
+		<title>FIFA</title>
+
+		<link href="/includes/less/styles.less" rel="Stylesheet" media="all" />
+
+		<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+	</head>
+	<body>
+		<form id="form1" runat="server">
+			<div class="shadow-wrapper">
+				<div class="outer-wrapper">
+					<header class="global-header">
+						<img class="logo" src="/includes/images/logo.gif" alt="FIFA 13" />
+
+						<nav>
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li class="separator">|</li>
+								<li><a href="new-game.aspx">New Game</a></li>
+							</ul>
+						</nav>
+
+						<div class="clear"></div>
+					</header>
+
+					<h1><asp:ContentPlaceHolder ID="cphH1" runat="server"></asp:ContentPlaceHolder></h1>
+
+					<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>
