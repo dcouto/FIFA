@@ -8,6 +8,10 @@ body {
 	font-size: 12px;
 }
 
+h1 {
+	font-size: 3em;
+}
+
 a {
 	color: #999999;
 	text-decoration: none;
@@ -29,19 +33,21 @@ a {
 
 .outer-wrapper {
 	margin: 0 auto;
-	width: 1024px;
+    padding: 20px;
+    width: 994px;
 }
 
 .global-header {
-	padding: 20px;
+	border-bottom: solid 1px black;
+	padding-bottom: 5px;
 
 	img {
 		float: left;
 	}
 
 	nav {
-		font-size: 2em;
-		padding: 128px 0 0 200px;
+		font-size: 1.5em;
+		padding: 135px 0 0 200px;
 
 		ul {
 			.unbullet-list();
@@ -54,5 +60,36 @@ a {
 				}
 			}
 		}
+	}
+}
+
+.my-division {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+
+	select {
+		margin-left: 5px;
+	}
+}
+
+.my-team,
+.opponents-team {
+	border: solid 1px black;
+	border-radius: 12px;
+	box-shadow: 0 1px black;
+	float: left;
+	padding:1%;
+    margin:20px 0 0 7%;
+    width: 37.5%;
+
+	select,
+	input {
+		display: block;
+		margin: 5% 0 0 0;
+	}
+
+	input {
+		width: 90%;
 	}
 }
