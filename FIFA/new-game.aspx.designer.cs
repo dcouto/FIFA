@@ -31,6 +31,15 @@ namespace FIFA {
         protected global::System.Web.UI.WebControls.DropDownList ddlMyTeam;
         
         /// <summary>
+        /// txtMyNewTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMyNewTeam;
+        
+        /// <summary>
         /// ddlMyFormation control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace FIFA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMyFormation;
+        
+        /// <summary>
+        /// txtMyNewFormation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMyNewFormation;
         
         /// <summary>
         /// txtOpponentsGamerTag control.
@@ -58,6 +76,15 @@ namespace FIFA {
         protected global::System.Web.UI.WebControls.DropDownList ddlOpponentsTeam;
         
         /// <summary>
+        /// txtOpponentsNewTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOpponentsNewTeam;
+        
+        /// <summary>
         /// ddlOpponentsFormation control.
         /// </summary>
         /// <remarks>
@@ -67,6 +94,24 @@ namespace FIFA {
         protected global::System.Web.UI.WebControls.DropDownList ddlOpponentsFormation;
         
         /// <summary>
+        /// txtOpponentsNewFormation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOpponentsNewFormation;
+        
+        /// <summary>
+        /// phBtnReset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phBtnReset;
+        
+        /// <summary>
         /// btnStartMatch control.
         /// </summary>
         /// <remarks>
@@ -74,5 +119,59 @@ namespace FIFA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnStartMatch;
+        
+        /// <summary>
+        /// btnStopMatch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnStopMatch;
+        
+        /// <summary>
+        /// phScore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phScore;
+        
+        /// <summary>
+        /// txtMyGoals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMyGoals;
+        
+        /// <summary>
+        /// txtOpponentsGoals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOpponentsGoals;
+        
+        /// <summary>
+        /// btnFinalizeMatch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFinalizeMatch;
+        
+        /// <summary>
+        /// lblMatchFinalized control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMatchFinalized;
     }
 }

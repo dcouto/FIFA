@@ -12,29 +12,32 @@
 	</head>
 	<body>
 		<form id="form1" runat="server">
-			<div class="shadow-wrapper">
-				<div class="outer-wrapper">
-					<header class="global-header">
-						<img class="logo" src="/includes/images/logo.gif" alt="FIFA 13" />
+			<div class="outer-wrapper">
+				<header class="global-header">
+					<img class="logo" src="/includes/images/logo.gif" alt="FIFA 13" />
 
-						<nav>
-							<ul>
-								<li><a href="/">Home</a></li>
-								<li class="separator">|</li>
-								<li><a href="new-game.aspx">New Game</a></li>
-							</ul>
-						</nav>
+					<nav>
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li class="separator">|</li>
+							<li><a href="new-game.aspx">New Game</a></li>
+						</ul>
+					</nav>
 
-						<div class="clear"></div>
-					</header>
+					<div class="clear"></div>
+				</header>
 
-					<h1><asp:ContentPlaceHolder ID="cphH1" runat="server"></asp:ContentPlaceHolder></h1>
+				<h1><asp:ContentPlaceHolder ID="cphH1" runat="server"></asp:ContentPlaceHolder></h1>
 
-					<section class="main">
-						<asp:ContentPlaceHolder ID="cphMain" runat="server"></asp:ContentPlaceHolder>
-					</section>
-				</div>
+				<section class="main">
+					<asp:ContentPlaceHolder ID="cphMain" runat="server"></asp:ContentPlaceHolder>
+				</section>
 			</div>
 		</form>
+
+		<script type="text/javascript" src="/includes/js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="/includes/js/scripts.js"></script>
+
+		<asp:ContentPlaceHolder ID="cphFooter" runat="server"></asp:ContentPlaceHolder>
 	</body>
 </html>

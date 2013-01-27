@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9" name="FIFA">
+  <DataContextMoniker Name="/FIFADataContext" />
+  <nestedChildShapes>
+    <classShape Id="61f40c48-044c-41ba-9927-002b3cc3aa24" absoluteBounds="8.5, 2, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/FIFADataContext/Country" />
+      <nestedChildShapes>
+        <elementListCompartment Id="66c977c9-0014-4a76-99ab-9ca0c0cb6809" absoluteBounds="8.515, 2.4600000000000009, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dac4735a-629a-4641-aac2-75b8967f3178" absoluteBounds="3.5, 7.375, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/FIFADataContext/Formation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2415e654-7d93-460e-9e90-cc14ac971ea8" absoluteBounds="3.5149999999999997, 7.835, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1dbb1cac-9a0f-493e-b62a-f45885c674b5" absoluteBounds="6, 2, 2, 1.5891951497395844">
+      <DataClassMoniker Name="/FIFADataContext/League" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b84d3073-2f69-47cf-ae7c-4d632759c34e" absoluteBounds="6.0150000000000006, 2.4600000000000009, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="86fb4721-4f7f-4560-958b-4aa20c1c18df" absoluteBounds="3.5, 4, 2, 2.9039737955729166">
+      <DataClassMoniker Name="/FIFADataContext/Match" />
+      <nestedChildShapes>
+        <elementListCompartment Id="91c31d6d-6592-439f-90c5-e6820f32acda" absoluteBounds="3.515, 4.46, 1.9700000000000002, 2.3439737955729165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a1bca71-df9f-45c1-a20f-a7fde277ae8e" absoluteBounds="6, 4, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/FIFADataContext/Player" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3909d75e-8398-4c78-9f17-8fecfb0edfd3" absoluteBounds="6.0150000000000006, 4.46, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b8cf5951-5adc-4378-b1d6-0b7a43d38eb6" absoluteBounds="3.5, 2, 2, 1.5891951497395827">
+      <DataClassMoniker Name="/FIFADataContext/Team" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e79f09bf-58a4-4343-ad0e-e42fec8d04da" absoluteBounds="3.515, 2.46, 1.9700000000000002, 1.0291951497395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="143aba1f-1194-4f05-afa1-2524ef4ae537" absoluteBounds="1, 4, 2, 1.9178898111979166">
+      <DataClassMoniker Name="/FIFADataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ed909757-2b7a-4292-af0b-484306e8aad9" absoluteBounds="1.0150000000000006, 4.4600000000000009, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.5 : 2.71242390950521); (8 : 2.71242390950521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FIFADataContext/Country/Country_League" />
+      <nodes>
+        <classShapeMoniker Id="61f40c48-044c-41ba-9927-002b3cc3aa24" />
+        <classShapeMoniker Id="1dbb1cac-9a0f-493e-b62a-f45885c674b5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 7.375); (4.5 : 6.90397379557292)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FIFADataContext/Formation/Formation_Match" />
+      <nodes>
+        <classShapeMoniker Id="dac4735a-629a-4641-aac2-75b8967f3178" />
+        <classShapeMoniker Id="86fb4721-4f7f-4560-958b-4aa20c1c18df" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.0625 : 7.375); (5.0625 : 6.90397379557292)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FIFADataContext/Formation/Formation_Match1" />
+      <nodes>
+        <classShapeMoniker Id="dac4735a-629a-4641-aac2-75b8967f3178" />
+        <classShapeMoniker Id="86fb4721-4f7f-4560-958b-4aa20c1c18df" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6 : 4.71242390950521); (5.5 : 4.71242390950521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FIFADataContext/Player/Player_Match" />
+      <nodes>
+        <classShapeMoniker Id="8a1bca71-df9f-45c1-a20f-a7fde277ae8e" />
+        <classShapeMoniker Id="86fb4721-4f7f-4560-958b-4aa20c1c18df" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 3.58919514973958); (4.5 : 4)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FIFADataContext/Team/Team_Match" />
+      <nodes>
+        <classShapeMoniker Id="b8cf5951-5adc-4378-b1d6-0b7a43d38eb6" />
+        <classShapeMoniker Id="86fb4721-4f7f-4560-958b-4aa20c1c18df" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.0625 : 3.58919514973958); (5.0625 : 4)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FIFADataContext/Team/Team_Match1" />
+      <nodes>
+        <classShapeMoniker Id="b8cf5951-5adc-4378-b1d6-0b7a43d38eb6" />
+        <classShapeMoniker Id="86fb4721-4f7f-4560-958b-4aa20c1c18df" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6 : 2.79459757486979); (5.5 : 2.79459757486979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FIFADataContext/League/League_Team" />
+      <nodes>
+        <classShapeMoniker Id="1dbb1cac-9a0f-493e-b62a-f45885c674b5" />
+        <classShapeMoniker Id="b8cf5951-5adc-4378-b1d6-0b7a43d38eb6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 4.95894490559896); (3.5 : 4.95894490559896)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/FIFADataContext/User/User_Match" />
+      <nodes>
+        <classShapeMoniker Id="143aba1f-1194-4f05-afa1-2524ef4ae537" />
+        <classShapeMoniker Id="86fb4721-4f7f-4560-958b-4aa20c1c18df" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
