@@ -39,10 +39,10 @@
       <Column Name="Player2" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="Player2Team" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="Player2Formation" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="MatchStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="MatchEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Player1Goals" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Player2Goals" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MatchStart" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MatchEnd" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="true" />
+      <Column Name="Player1Goals" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="true" />
+      <Column Name="Player2Goals" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="true" />
       <Column Name="DateCreated" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="DateModified" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="Formation_Match" Member="Formation" ThisKey="Player1Formation" OtherKey="ID" Type="Formation" IsForeignKey="true" />

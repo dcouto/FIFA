@@ -71,8 +71,8 @@ a {
 	}
 }
 
-.my-team,
-.opponents-team {
+.player1-team,
+.player2-team {
 	border: solid 1px black;
 	border-radius: 12px;
 	box-shadow: 0 1px black;
@@ -96,9 +96,15 @@ a {
 	margin-top: 5%;
 	text-align: center;
 
-	input {
+	input[type='text'] {
 		width: 30px;
 	}
+}
+
+.btn-finalize-match {
+	display: block;
+    margin: 10px auto 0 auto;
+    width: 92px;
 }
 
 .btn-reset {
@@ -113,6 +119,11 @@ a {
 .btn-stop-match {
 	margin-top: 1%;
 	margin-left: 7%;
+}
+
+.match-finalized {
+	margin-top: 20px;
+	text-align: center;
 }
 
 .match-time {

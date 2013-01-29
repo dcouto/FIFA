@@ -741,11 +741,11 @@ namespace FIFA.COM.DataContext
 		
 		private System.DateTime _MatchStart;
 		
-		private System.DateTime _MatchEnd;
+		private System.Nullable<System.DateTime> _MatchEnd;
 		
-		private int _Player1Goals;
+		private System.Nullable<int> _Player1Goals;
 		
-		private int _Player2Goals;
+		private System.Nullable<int> _Player2Goals;
 		
 		private System.DateTime _DateCreated;
 		
@@ -783,11 +783,11 @@ namespace FIFA.COM.DataContext
     partial void OnPlayer2FormationChanged();
     partial void OnMatchStartChanging(System.DateTime value);
     partial void OnMatchStartChanged();
-    partial void OnMatchEndChanging(System.DateTime value);
+    partial void OnMatchEndChanging(System.Nullable<System.DateTime> value);
     partial void OnMatchEndChanged();
-    partial void OnPlayer1GoalsChanging(int value);
+    partial void OnPlayer1GoalsChanging(System.Nullable<int> value);
     partial void OnPlayer1GoalsChanged();
-    partial void OnPlayer2GoalsChanging(int value);
+    partial void OnPlayer2GoalsChanging(System.Nullable<int> value);
     partial void OnPlayer2GoalsChanged();
     partial void OnDateCreatedChanging(System.DateTime value);
     partial void OnDateCreatedChanged();
@@ -970,7 +970,7 @@ namespace FIFA.COM.DataContext
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatchStart", DbType="DateTime NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatchStart", DbType="DateTime NOT NULL", IsDbGenerated=true)]
 		public System.DateTime MatchStart
 		{
 			get
@@ -991,7 +991,7 @@ namespace FIFA.COM.DataContext
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatchEnd", DbType="DateTime NOT NULL")]
-		public System.DateTime MatchEnd
+		public System.Nullable<System.DateTime> MatchEnd
 		{
 			get
 			{
@@ -1011,7 +1011,7 @@ namespace FIFA.COM.DataContext
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Player1Goals", DbType="Int NOT NULL")]
-		public int Player1Goals
+		public System.Nullable<int> Player1Goals
 		{
 			get
 			{
@@ -1031,7 +1031,7 @@ namespace FIFA.COM.DataContext
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Player2Goals", DbType="Int NOT NULL")]
-		public int Player2Goals
+		public System.Nullable<int> Player2Goals
 		{
 			get
 			{

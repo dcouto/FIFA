@@ -22,85 +22,247 @@ namespace FIFA {
         protected global::System.Web.UI.WebControls.DropDownList ddlDivision;
         
         /// <summary>
-        /// ddlMyTeam control.
+        /// ddlPlayer1TeamType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMyTeam;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlayer1TeamType;
         
         /// <summary>
-        /// txtMyNewTeam control.
+        /// phPlayer1ClubTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMyNewTeam;
+        protected global::System.Web.UI.WebControls.PlaceHolder phPlayer1ClubTeam;
         
         /// <summary>
-        /// ddlMyFormation control.
+        /// ddlPlayer1ClubLeague control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMyFormation;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlayer1ClubLeague;
         
         /// <summary>
-        /// txtMyNewFormation control.
+        /// txtPlayer1ClubNewLeague control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMyNewFormation;
+        protected global::System.Web.UI.WebControls.TextBox txtPlayer1ClubNewLeague;
         
         /// <summary>
-        /// txtOpponentsGamerTag control.
+        /// ddlPlayer1ClubTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOpponentsGamerTag;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlayer1ClubTeam;
         
         /// <summary>
-        /// ddlOpponentsTeam control.
+        /// txtPlayer1ClubNewTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlOpponentsTeam;
+        protected global::System.Web.UI.WebControls.TextBox txtPlayer1ClubNewTeam;
         
         /// <summary>
-        /// txtOpponentsNewTeam control.
+        /// ddlPlayer1ClubFormation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOpponentsNewTeam;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlayer1ClubFormation;
         
         /// <summary>
-        /// ddlOpponentsFormation control.
+        /// txtPlayer1ClubNewFormation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlOpponentsFormation;
+        protected global::System.Web.UI.WebControls.TextBox txtPlayer1ClubNewFormation;
         
         /// <summary>
-        /// txtOpponentsNewFormation control.
+        /// phPlayer1NationalTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOpponentsNewFormation;
+        protected global::System.Web.UI.WebControls.PlaceHolder phPlayer1NationalTeam;
+        
+        /// <summary>
+        /// ddlPlayer1NationalTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlayer1NationalTeam;
+        
+        /// <summary>
+        /// txtPlayer1NationalNewTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPlayer1NationalNewTeam;
+        
+        /// <summary>
+        /// ddlPlayer1NationalFormation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlayer1NationalFormation;
+        
+        /// <summary>
+        /// txtPlayer1NationalNewFormation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPlayer1NationalNewFormation;
+        
+        /// <summary>
+        /// txtPlayer2GamerTag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPlayer2GamerTag;
+        
+        /// <summary>
+        /// ddlPlayer2TeamType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlayer2TeamType;
+        
+        /// <summary>
+        /// phPlayer2ClubTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phPlayer2ClubTeam;
+        
+        /// <summary>
+        /// ddlPlayer2ClubLeague control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlayer2ClubLeague;
+        
+        /// <summary>
+        /// txtPlayer2ClubNewLeague control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPlayer2ClubNewLeague;
+        
+        /// <summary>
+        /// ddlPlayer2ClubTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlayer2ClubTeam;
+        
+        /// <summary>
+        /// txtPlayer2ClubNewTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPlayer2ClubNewTeam;
+        
+        /// <summary>
+        /// ddlPlayer2ClubFormation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlayer2ClubFormation;
+        
+        /// <summary>
+        /// txtPlayer2ClubNewFormation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPlayer2ClubNewFormation;
+        
+        /// <summary>
+        /// phPlayer2NationalTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phPlayer2NationalTeam;
+        
+        /// <summary>
+        /// ddlPlayer2NationalTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlayer2NationalTeam;
+        
+        /// <summary>
+        /// txtPlayer2NationalNewTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPlayer2NationalNewTeam;
+        
+        /// <summary>
+        /// ddlPlayer2NationalFormation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPlayer2NationalFormation;
+        
+        /// <summary>
+        /// txtPlayer2NationalNewFormation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPlayer2NationalNewFormation;
         
         /// <summary>
         /// phBtnReset control.
@@ -166,12 +328,12 @@ namespace FIFA {
         protected global::System.Web.UI.WebControls.Button btnFinalizeMatch;
         
         /// <summary>
-        /// lblMatchFinalized control.
+        /// pnlMatchFinalized control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMatchFinalized;
+        protected global::System.Web.UI.WebControls.Panel pnlMatchFinalized;
     }
 }
