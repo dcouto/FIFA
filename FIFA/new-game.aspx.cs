@@ -25,145 +25,51 @@ namespace FIFA
 			}
 		}
 
+		string CurrentMatchGuid {
+			get {
+				return (string)ViewState["CurrentMatchGuid"];
+			}
+			set {
+				ViewState["CurrentMatchGuid"] = value;
+			}
+		}
+
 		protected void Page_Load(object sender, EventArgs e) {
 			if (!IsPostBack) {
 				SetControls();
 			}
 		}
 
-		protected void ddlPlayer1TeamType_SelectedIndexChanged(object sender, EventArgs e) {
-			phPlayer1ClubTeam.Visible = false;
-			phPlayer1NationalTeam.Visible = false;
-
-			using (FIFADataContext db = new FIFADataContext()) {
-				// club
-				if (ddlPlayer1TeamType.SelectedValue == "Club") {
-					phPlayer1ClubTeam.Visible = true;
-
-					// leagues ddl
-					if (ddlPlayer1ClubLeague.Items.Count == 1) {
-						var leagues = from l in db.Leagues
-									  orderby l.Name
-									  select l;
-
-						foreach (var l in leagues) {
-							ddlPlayer1ClubLeague.Items.Add(new ListItem(l.Name, l.ID.ToString()));
-						}
-					}
-
-					// teams ddl
-					if (ddlPlayer1ClubTeam.Items.Count == 1) {
-						var teams = from t in db.Teams
-									orderby t.Name
-									select t;
-
-						foreach (var t in teams) {
-							ddlPlayer1ClubTeam.Items.Add(new ListItem(t.Name, t.ID.ToString()));
-						}
-					}
-
-					// formations ddl
-					if (ddlPlayer1ClubFormation.Items.Count == 1) {
-						var formations = from f in db.Formations
-										 orderby f.Formation1
-										 select f;
-
-						foreach (var f in formations) {
-							ddlPlayer1ClubFormation.Items.Add(new ListItem(f.Formation1, f.ID.ToString()));
-						}
-					}
-				}
-				// national team
-				else if (ddlPlayer1TeamType.SelectedValue == "National") {
-					phPlayer1NationalTeam.Visible = true;
-
-					// teams ddl
-					if (ddlPlayer1NationalTeam.Items.Count == 1) {
-						var countries = from c in db.Countries
-										orderby c.Name
-										select c;
-
-						foreach (var c in countries) {
-							ddlPlayer1NationalTeam.Items.Add(c.Name);
-						}
-					}
-
-					// formations ddl
-					if (ddlPlayer1NationalFormation.Items.Count == 1) {
-						var formations = from f in db.Formations
-										 orderby f.Formation1
-										 select f;
-
-						foreach (var f in formations) {
-							ddlPlayer1NationalFormation.Items.Add(new ListItem(f.Formation1, f.ID.ToString()));
-						}
-					}
-				}
-			}
-		}
-
-		protected void ddlPlayer2TeamType_SelectedIndexChanged(object sender, EventArgs e) {
-			phPlayer2ClubTeam.Visible = false;
-			phPlayer2NationalTeam.Visible = false;
-
-			using (FIFADataContext db = new FIFADataContext()) {
-				if (ddlPlayer2TeamType.SelectedValue == "Club") {
-					phPlayer2ClubTeam.Visible = true;
-
-					// leagues ddl
-					if (ddlPlayer2ClubLeague.Items.Count == 1) {
-						var leagues = from l in db.Leagues
-									  orderby l.Name
-									  select l;
-
-						foreach (var l in leagues) {
-							ddlPlayer2ClubLeague.Items.Add(new ListItem(l.Name, l.ID.ToString()));
-						}
-					}
-
-					// teams ddl
-					if (ddlPlayer2ClubTeam.Items.Count == 1) {
-						var teams = from t in db.Teams
-									orderby t.Name
-									select t;
-
-						foreach (var t in teams) {
-							ddlPlayer2ClubTeam.Items.Add(new ListItem(t.Name, t.ID.ToString()));
-						}
-					}
-
-					// formations ddl
-					if (ddlPlayer2ClubFormation.Items.Count == 1) {
-						var formations = from f in db.Formations
-										 orderby f.Formation1
-										 select f;
-
-						foreach (var f in formations) {
-							ddlPlayer2ClubFormation.Items.Add(new ListItem(f.Formation1, f.ID.ToString()));
-						}
-					}
-				}
-				else if (ddlPlayer2TeamType.SelectedValue == "National") {
-					phPlayer2NationalTeam.Visible = true;
-
-					if (ddlPlayer2NationalTeam.Items.Count == 1) {
-						var countries = from c in db.Countries
-										orderby c.Name
-										select c;
-
-						foreach (var c in countries) {
-							ddlPlayer2NationalTeam.Items.Add(c.Name);
-						}
-					}
-				}
-			}
-		}
-
 		protected void SetControls() {
+			// my division ddl
+			if (CurrentUser != null) {
+				ddlDivision.SelectValue(CurrentUser.Division.ToString());
+			}
+			
 			using (FIFADataContext db = new FIFADataContext()) {
-				// my division ddl
-				if (CurrentUser != null) {
-					ddlDivision.SelectValue(CurrentUser.Division.ToString());
+				// teams drop-down lists
+				var teams = from t in db.Teams
+							orderby t.Name
+							select t;
+
+				foreach (Team t in teams) {
+					ListItem li = new ListItem(t.Name, t.ID.ToString());
+
+					ddlPlayer1Team.Items.Add(li);
+					ddlPlayer2Team.Items.Add(li);
+				}
+
+
+				// formations drop-down lists
+				var formations = from f in db.Formations
+								 orderby f.Formation1
+								 select f;
+
+				foreach (Formation f in formations) {
+					ListItem li = new ListItem(f.Formation1, f.ID.ToString());
+
+					ddlPlayer1Formation.Items.Add(li);
+					ddlPlayer2Formation.Items.Add(li);
 				}
 			}
 		}
@@ -173,52 +79,97 @@ namespace FIFA
 			btnStartMatch.Visible = false;
 
 			using (FIFADataContext db = new FIFADataContext()) {
-				Match match = null;
+				Match match = new Match {
+					Player1 = CurrentUser.ID,
+					Player1Team = GetTeamGuid(ddlPlayer1Team, txtPlayer1NewTeam),
+					Player1Formation = GetFormationGuid(ddlPlayer1Formation, txtPlayer1NewFormation),
+					Player2 = GetPlayerGuid(),
+					Player2Team = GetTeamGuid(ddlPlayer2Team, txtPlayer2NewTeam),
+					Player2Formation = GetFormationGuid(ddlPlayer2Formation, txtPlayer2NewFormation)
+				};
 				
-				// player 1
-				// club
-				if(phPlayer1ClubTeam.Visible) {
-					if (match == null)
-						match = new Match();
-
-					match.Player1 = CurrentUser.ID;
-					match.Player1Team = new Guid(ddlPlayer1ClubTeam.SelectedValue);
-					match.Player1Formation = new Guid(ddlPlayer1ClubFormation.SelectedValue);
-						
-				}
-				// national
-				else {
-					if (match == null)
-						match = new Match();
-
-					match.Player1 = CurrentUser.ID;
-					match.Player1Team = new Guid(ddlPlayer1NationalTeam.SelectedValue);
-					match.Player1Formation = new Guid(ddlPlayer1NationalFormation.SelectedValue);
-				}
-
-
-				// player 2
-				match.Player2 = GetPlayerByGamerTag();
-
-				// club
-				if(phPlayer2ClubTeam.Visible) {
-					match.Player2Team = new Guid(ddlPlayer2ClubTeam.SelectedValue);
-					match.Player2Formation = new Guid(ddlPlayer2ClubFormation.SelectedValue);
-				}
-				// national
-				else {
-					match.Player2Team = new Guid(ddlPlayer2NationalTeam.SelectedValue);
-					match.Player2Formation = new Guid(ddlPlayer2NationalFormation.SelectedValue);
-				}
-
-
 				if (match != null) {
 					db.Matches.InsertOnSubmit(match);
 					db.SubmitChanges();
 				}
+
+				CurrentMatchGuid = match.ID.ToString();
 			}
 
 			btnStopMatch.Visible = true;
+		}
+
+		private Guid GetTeamGuid(DropDownList ddl, TextBox txt) {
+			Guid guid = new Guid();
+			
+			if (txt.Text != "") {
+				using (FIFADataContext db = new FIFADataContext()) {
+					Team team = (from t in db.Teams
+								where t.Name == txt.Text
+								select t).FirstOrDefault();
+
+					if (team == null) {
+						team = new Team { Name = txt.Text };
+
+						db.Teams.InsertOnSubmit(team);
+						db.SubmitChanges();
+					}
+
+					guid = team.ID;
+				}
+			}
+			else {
+				guid = new Guid(ddl.SelectedValue);
+			}
+
+			return guid;
+		}
+
+		private Guid GetFormationGuid(DropDownList ddl, TextBox txt) {
+			Guid guid = new Guid();
+
+			if (txt.Text != "") {
+				using (FIFADataContext db = new FIFADataContext()) {
+					Formation formation = (from f in db.Formations
+										   where f.Formation1 == txt.Text
+										   select f).FirstOrDefault();
+
+					if (formation == null) {
+						formation = new Formation { Formation1 = txt.Text };
+
+						db.Formations.InsertOnSubmit(formation);
+						db.SubmitChanges();
+					}
+
+					guid = formation.ID;
+				}
+			}
+			else {
+				guid = new Guid(ddl.SelectedValue);
+			}
+
+			return guid;
+		}
+
+		private Guid GetPlayerGuid() {
+			Guid guid = new Guid();
+
+			using (FIFADataContext db = new FIFADataContext()) {
+				Player player = (from p in db.Players
+								 where p.GamerTag == txtPlayer2GamerTag.Text
+								 select p).FirstOrDefault();
+
+				if(player == null) {
+					player = new Player { GamerTag = txtPlayer2GamerTag.Text };
+
+					db.Players.InsertOnSubmit(player);
+					db.SubmitChanges();
+				}
+
+				guid = player.ID;
+			}
+
+			return guid;
 		}
 
 		protected void btnStopMatch_Click(object sender, EventArgs e) {
@@ -230,59 +181,21 @@ namespace FIFA
 
 		protected void btnFinalizeMatch_Click(object sender, EventArgs e) {
 			phScore.Visible = false;
+
+			using (FIFADataContext db = new FIFADataContext()) {
+				var match = (from m in db.Matches
+							 where m.ID.ToString() == CurrentMatchGuid
+							 select m).FirstOrDefault();
+
+				match.MatchEnd = DateTime.Now;
+
+				match.Player1Goals = int.Parse(txtPlayer1Goals.Text);
+				match.Player2Goals = int.Parse(txtPlayer2Goals.Text);
+
+				db.SubmitChanges();
+			}
 			
 			pnlMatchFinalized.Visible = true;
-		}
-
-		private Guid GetPlayer1Team() {
-			Guid guid = new Guid();
-
-			//if (txtPlayer1NewTeam.Text != "") {
-			//	using (FIFADataContext db = new FIFADataContext()) {
-			//		Team team = new Team { Name = txtPlayer1NewTeam.Text, 
-			//	}
-			//}
-
-			return guid;
-		}
-
-		private Guid GetPlayer1League() {
-			Guid guid = new Guid();
-
-			//using (FIFADataContext db = new FIFADataContext()) {
-			//	if (txtPlayer1NewLeague.Text != "") {
-					
-			//	}
-			//	else {
-
-			//	}
-			//}
-
-			return guid;
-		}
-
-		private Guid GetPlayerByGamerTag() {
-			Guid guid = new Guid();
-			
-			using (FIFADataContext db = new FIFADataContext()) {
-				var player = (from p in db.Players
-							  where p.GamerTag == txtPlayer2GamerTag.Text
-							  select p).FirstOrDefault();
-
-				if (player != null) {
-					guid = player.ID;
-				}
-				else {
-					Player newPlayer = new Player { GamerTag = txtPlayer2GamerTag.Text };
-
-					db.Players.InsertOnSubmit(newPlayer);
-					db.SubmitChanges();
-
-					guid = newPlayer.ID;
-				}
-			}
-
-			return guid;
 		}
 	}
 }

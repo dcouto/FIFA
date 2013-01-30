@@ -30,15 +30,9 @@ namespace FIFA.COM.DataContext
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertCountry(Country instance);
-    partial void UpdateCountry(Country instance);
-    partial void DeleteCountry(Country instance);
     partial void InsertFormation(Formation instance);
     partial void UpdateFormation(Formation instance);
     partial void DeleteFormation(Formation instance);
-    partial void InsertLeague(League instance);
-    partial void UpdateLeague(League instance);
-    partial void DeleteLeague(League instance);
     partial void InsertMatch(Match instance);
     partial void UpdateMatch(Match instance);
     partial void DeleteMatch(Match instance);
@@ -83,27 +77,11 @@ namespace FIFA.COM.DataContext
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Country> Countries
-		{
-			get
-			{
-				return this.GetTable<Country>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Formation> Formations
 		{
 			get
 			{
 				return this.GetTable<Formation>();
-			}
-		}
-		
-		public System.Data.Linq.Table<League> Leagues
-		{
-			get
-			{
-				return this.GetTable<League>();
 			}
 		}
 		
@@ -137,168 +115,6 @@ namespace FIFA.COM.DataContext
 			{
 				return this.GetTable<User>();
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Countries")]
-	public partial class Country : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _ID;
-		
-		private string _Name;
-		
-		private System.DateTime _DateCreated;
-		
-		private System.DateTime _DateModified;
-		
-		private EntitySet<League> _Leagues;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(System.Guid value);
-    partial void OnIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnDateCreatedChanging(System.DateTime value);
-    partial void OnDateCreatedChanged();
-    partial void OnDateModifiedChanging(System.DateTime value);
-    partial void OnDateModifiedChanged();
-    #endregion
-		
-		public Country()
-		{
-			this._Leagues = new EntitySet<League>(new Action<League>(this.attach_Leagues), new Action<League>(this.detach_Leagues));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true, IsDbGenerated=true)]
-		public System.Guid ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateCreated", DbType="DateTime NOT NULL", IsDbGenerated=true)]
-		public System.DateTime DateCreated
-		{
-			get
-			{
-				return this._DateCreated;
-			}
-			set
-			{
-				if ((this._DateCreated != value))
-				{
-					this.OnDateCreatedChanging(value);
-					this.SendPropertyChanging();
-					this._DateCreated = value;
-					this.SendPropertyChanged("DateCreated");
-					this.OnDateCreatedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateModified", DbType="DateTime NOT NULL", IsDbGenerated=true)]
-		public System.DateTime DateModified
-		{
-			get
-			{
-				return this._DateModified;
-			}
-			set
-			{
-				if ((this._DateModified != value))
-				{
-					this.OnDateModifiedChanging(value);
-					this.SendPropertyChanging();
-					this._DateModified = value;
-					this.SendPropertyChanged("DateModified");
-					this.OnDateModifiedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Country_League", Storage="_Leagues", ThisKey="ID", OtherKey="Country")]
-		public EntitySet<League> Leagues
-		{
-			get
-			{
-				return this._Leagues;
-			}
-			set
-			{
-				this._Leagues.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Leagues(League entity)
-		{
-			this.SendPropertyChanging();
-			entity.Country1 = this;
-		}
-		
-		private void detach_Leagues(League entity)
-		{
-			this.SendPropertyChanging();
-			entity.Country1 = null;
 		}
 	}
 	
@@ -489,233 +305,6 @@ namespace FIFA.COM.DataContext
 		{
 			this.SendPropertyChanging();
 			entity.Formation1 = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Leagues")]
-	public partial class League : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _ID;
-		
-		private string _Name;
-		
-		private System.Guid _Country;
-		
-		private System.DateTime _DateCreated;
-		
-		private System.DateTime _DateModified;
-		
-		private EntitySet<Team> _Teams;
-		
-		private EntityRef<Country> _Country1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(System.Guid value);
-    partial void OnIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnCountryChanging(System.Guid value);
-    partial void OnCountryChanged();
-    partial void OnDateCreatedChanging(System.DateTime value);
-    partial void OnDateCreatedChanged();
-    partial void OnDateModifiedChanging(System.DateTime value);
-    partial void OnDateModifiedChanged();
-    #endregion
-		
-		public League()
-		{
-			this._Teams = new EntitySet<Team>(new Action<Team>(this.attach_Teams), new Action<Team>(this.detach_Teams));
-			this._Country1 = default(EntityRef<Country>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true, IsDbGenerated=true)]
-		public System.Guid ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid Country
-		{
-			get
-			{
-				return this._Country;
-			}
-			set
-			{
-				if ((this._Country != value))
-				{
-					if (this._Country1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCountryChanging(value);
-					this.SendPropertyChanging();
-					this._Country = value;
-					this.SendPropertyChanged("Country");
-					this.OnCountryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateCreated", DbType="DateTime NOT NULL", IsDbGenerated=true)]
-		public System.DateTime DateCreated
-		{
-			get
-			{
-				return this._DateCreated;
-			}
-			set
-			{
-				if ((this._DateCreated != value))
-				{
-					this.OnDateCreatedChanging(value);
-					this.SendPropertyChanging();
-					this._DateCreated = value;
-					this.SendPropertyChanged("DateCreated");
-					this.OnDateCreatedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateModified", DbType="DateTime NOT NULL", IsDbGenerated=true)]
-		public System.DateTime DateModified
-		{
-			get
-			{
-				return this._DateModified;
-			}
-			set
-			{
-				if ((this._DateModified != value))
-				{
-					this.OnDateModifiedChanging(value);
-					this.SendPropertyChanging();
-					this._DateModified = value;
-					this.SendPropertyChanged("DateModified");
-					this.OnDateModifiedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="League_Team", Storage="_Teams", ThisKey="ID", OtherKey="League")]
-		public EntitySet<Team> Teams
-		{
-			get
-			{
-				return this._Teams;
-			}
-			set
-			{
-				this._Teams.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Country_League", Storage="_Country1", ThisKey="Country", OtherKey="ID", IsForeignKey=true)]
-		public Country Country1
-		{
-			get
-			{
-				return this._Country1.Entity;
-			}
-			set
-			{
-				Country previousValue = this._Country1.Entity;
-				if (((previousValue != value) 
-							|| (this._Country1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Country1.Entity = null;
-						previousValue.Leagues.Remove(this);
-					}
-					this._Country1.Entity = value;
-					if ((value != null))
-					{
-						value.Leagues.Add(this);
-						this._Country = value.ID;
-					}
-					else
-					{
-						this._Country = default(System.Guid);
-					}
-					this.SendPropertyChanged("Country1");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Teams(Team entity)
-		{
-			this.SendPropertyChanging();
-			entity.League1 = this;
-		}
-		
-		private void detach_Teams(Team entity)
-		{
-			this.SendPropertyChanging();
-			entity.League1 = null;
 		}
 	}
 	
@@ -990,7 +579,7 @@ namespace FIFA.COM.DataContext
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatchEnd", DbType="DateTime NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatchEnd", DbType="DateTime")]
 		public System.Nullable<System.DateTime> MatchEnd
 		{
 			get
@@ -1010,7 +599,7 @@ namespace FIFA.COM.DataContext
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Player1Goals", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Player1Goals", DbType="Int")]
 		public System.Nullable<int> Player1Goals
 		{
 			get
@@ -1030,7 +619,7 @@ namespace FIFA.COM.DataContext
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Player2Goals", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Player2Goals", DbType="Int")]
 		public System.Nullable<int> Player2Goals
 		{
 			get
@@ -1487,8 +1076,6 @@ namespace FIFA.COM.DataContext
 		
 		private string _Name;
 		
-		private System.Guid _League;
-		
 		private System.DateTime _DateCreated;
 		
 		private System.DateTime _DateModified;
@@ -1496,8 +1083,6 @@ namespace FIFA.COM.DataContext
 		private EntitySet<Match> _Matches;
 		
 		private EntitySet<Match> _Matches1;
-		
-		private EntityRef<League> _League1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1507,8 +1092,6 @@ namespace FIFA.COM.DataContext
     partial void OnIDChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
-    partial void OnLeagueChanging(System.Guid value);
-    partial void OnLeagueChanged();
     partial void OnDateCreatedChanging(System.DateTime value);
     partial void OnDateCreatedChanged();
     partial void OnDateModifiedChanging(System.DateTime value);
@@ -1519,7 +1102,6 @@ namespace FIFA.COM.DataContext
 		{
 			this._Matches = new EntitySet<Match>(new Action<Match>(this.attach_Matches), new Action<Match>(this.detach_Matches));
 			this._Matches1 = new EntitySet<Match>(new Action<Match>(this.attach_Matches1), new Action<Match>(this.detach_Matches1));
-			this._League1 = default(EntityRef<League>);
 			OnCreated();
 		}
 		
@@ -1559,30 +1141,6 @@ namespace FIFA.COM.DataContext
 					this._Name = value;
 					this.SendPropertyChanged("Name");
 					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_League", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid League
-		{
-			get
-			{
-				return this._League;
-			}
-			set
-			{
-				if ((this._League != value))
-				{
-					if (this._League1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnLeagueChanging(value);
-					this.SendPropertyChanging();
-					this._League = value;
-					this.SendPropertyChanged("League");
-					this.OnLeagueChanged();
 				}
 			}
 		}
@@ -1650,40 +1208,6 @@ namespace FIFA.COM.DataContext
 			set
 			{
 				this._Matches1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="League_Team", Storage="_League1", ThisKey="League", OtherKey="ID", IsForeignKey=true)]
-		public League League1
-		{
-			get
-			{
-				return this._League1.Entity;
-			}
-			set
-			{
-				League previousValue = this._League1.Entity;
-				if (((previousValue != value) 
-							|| (this._League1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._League1.Entity = null;
-						previousValue.Teams.Remove(this);
-					}
-					this._League1.Entity = value;
-					if ((value != null))
-					{
-						value.Teams.Add(this);
-						this._League = value.ID;
-					}
-					else
-					{
-						this._League = default(System.Guid);
-					}
-					this.SendPropertyChanged("League1");
-				}
 			}
 		}
 		

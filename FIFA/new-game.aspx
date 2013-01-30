@@ -24,84 +24,34 @@
 	</label>
 	<em>To update your division, change it above.  It will be saved to your profile when you click the Start Match button below.</em>
 	
-	<section class="player1-team">
+	<section class="player">
 		<h2>Me</h2>
 
-		<asp:DropDownList ID="ddlPlayer1TeamType" AutoPostBack="true" OnSelectedIndexChanged="ddlPlayer1TeamType_SelectedIndexChanged" runat="server">
-			<asp:ListItem Value="- Select your team type -"></asp:ListItem>
-			<asp:ListItem Value="Club"></asp:ListItem>
-			<asp:ListItem Value="National"></asp:ListItem>
+		<asp:DropDownList ID="ddlPlayer1Team" runat="server">
+			<asp:ListItem Value="- Select your team -"></asp:ListItem>
 		</asp:DropDownList>
+		<asp:TextBox ID="txtPlayer1NewTeam" placeholder="Enter a new team" runat="server"></asp:TextBox>
 
-		<asp:PlaceHolder ID="phPlayer1ClubTeam" Visible="false" runat="server">
-			<asp:DropDownList ID="ddlPlayer1ClubLeague" runat="server">
-				<asp:ListItem Value="- Select your league"></asp:ListItem>
-			</asp:DropDownList>
-			<asp:TextBox ID="txtPlayer1ClubNewLeague" placeholder="Enter a new league" runat="server"></asp:TextBox>
-
-			<asp:DropDownList ID="ddlPlayer1ClubTeam" runat="server">
-				<asp:ListItem Value="- Select your team -"></asp:ListItem>
-			</asp:DropDownList>
-			<asp:TextBox ID="txtPlayer1ClubNewTeam" placeholder="Enter a new team" runat="server"></asp:TextBox>
-
-			<asp:DropDownList ID="ddlPlayer1ClubFormation" runat="server">
-				<asp:ListItem Value="- Select your formation -"></asp:ListItem>
-			</asp:DropDownList>
-			<asp:TextBox ID="txtPlayer1ClubNewFormation" placeholder="Enter a new formation" runat="server"></asp:TextBox>
-		</asp:PlaceHolder>
-
-		<asp:PlaceHolder ID="phPlayer1NationalTeam" Visible="false" runat="server">
-			<asp:DropDownList ID="ddlPlayer1NationalTeam" runat="server">
-				<asp:ListItem Value="- Select your team -"></asp:ListItem>
-			</asp:DropDownList>
-			<asp:TextBox ID="txtPlayer1NationalNewTeam" placeholder="Enter a new team" runat="server"></asp:TextBox>
-
-			<asp:DropDownList ID="ddlPlayer1NationalFormation" runat="server">
-				<asp:ListItem Value="- Select your formation -"></asp:ListItem>
-			</asp:DropDownList>
-			<asp:TextBox ID="txtPlayer1NationalNewFormation" placeholder="Enter a new formation" runat="server"></asp:TextBox>
-		</asp:PlaceHolder>
+		<asp:DropDownList ID="ddlPlayer1Formation" runat="server">
+			<asp:ListItem Value="- Select your formation -"></asp:ListItem>
+		</asp:DropDownList>
+		<asp:TextBox ID="txtPlayer1NewFormation" placeholder="Enter a new formation" runat="server"></asp:TextBox>
 	</section>
 
-	<section class="player2-team">
+	<section class="player">
 		<h2>Opponent</h2>
 
 		<asp:TextBox ID="txtPlayer2GamerTag" placeholder="Opponents Gamer Tag" runat="server"></asp:TextBox>
 
-		<asp:DropDownList ID="ddlPlayer2TeamType" AutoPostBack="true" OnSelectedIndexChanged="ddlPlayer2TeamType_SelectedIndexChanged" runat="server">
-			<asp:ListItem Value="- Select your team type -"></asp:ListItem>
-			<asp:ListItem Value="Club"></asp:ListItem>
-			<asp:ListItem Value="National"></asp:ListItem>
+		<asp:DropDownList ID="ddlPlayer2Team" runat="server">
+			<asp:ListItem Value="- Select your team -"></asp:ListItem>
 		</asp:DropDownList>
+		<asp:TextBox ID="txtPlayer2NewTeam" placeholder="Enter a new team" runat="server"></asp:TextBox>
 
-		<asp:PlaceHolder ID="phPlayer2ClubTeam" Visible="false" runat="server">
-			<asp:DropDownList ID="ddlPlayer2ClubLeague" runat="server">
-				<asp:ListItem Value="- Select your league"></asp:ListItem>
-			</asp:DropDownList>
-			<asp:TextBox ID="txtPlayer2ClubNewLeague" placeholder="Enter a new league" runat="server"></asp:TextBox>
-
-			<asp:DropDownList ID="ddlPlayer2ClubTeam" runat="server">
-				<asp:ListItem Value="- Select your team -"></asp:ListItem>
-			</asp:DropDownList>
-			<asp:TextBox ID="txtPlayer2ClubNewTeam" placeholder="Enter a new team" runat="server"></asp:TextBox>
-
-			<asp:DropDownList ID="ddlPlayer2ClubFormation" runat="server">
-				<asp:ListItem Value="- Select your formation -"></asp:ListItem>
-			</asp:DropDownList>
-			<asp:TextBox ID="txtPlayer2ClubNewFormation" placeholder="Enter a new formation" runat="server"></asp:TextBox>
-		</asp:PlaceHolder>
-
-		<asp:PlaceHolder ID="phPlayer2NationalTeam" Visible="false" runat="server">
-			<asp:DropDownList ID="ddlPlayer2NationalTeam" runat="server">
-				<asp:ListItem Value="- Select your team -"></asp:ListItem>
-			</asp:DropDownList>
-			<asp:TextBox ID="txtPlayer2NationalNewTeam" placeholder="Enter a new team" runat="server"></asp:TextBox>
-
-			<asp:DropDownList ID="ddlPlayer2NationalFormation" runat="server">
-				<asp:ListItem Value="- Select your formation -"></asp:ListItem>
-			</asp:DropDownList>
-			<asp:TextBox ID="txtPlayer2NationalNewFormation" placeholder="Enter a new formation" runat="server"></asp:TextBox>
-		</asp:PlaceHolder>
+		<asp:DropDownList ID="ddlPlayer2Formation" runat="server">
+			<asp:ListItem Value="- Select your formation -"></asp:ListItem>
+		</asp:DropDownList>
+		<asp:TextBox ID="txtPlayer2NewFormation" placeholder="Enter a new formation" runat="server"></asp:TextBox>
 	</section>
 
 	<div class="clear"></div>
@@ -119,7 +69,7 @@
 	<asp:PlaceHolder ID="phScore" Visible="false" runat="server">
 		<section class="score">
 			<h2>Score</h2>
-			<asp:TextBox ID="txtMyGoals" runat="server"></asp:TextBox> x <asp:TextBox ID="txtOpponentsGoals" runat="server"></asp:TextBox>
+			<asp:TextBox ID="txtPlayer1Goals" runat="server"></asp:TextBox> x <asp:TextBox ID="txtPlayer2Goals" runat="server"></asp:TextBox>
 		</section>
 	</asp:PlaceHolder>
 

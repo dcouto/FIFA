@@ -20,7 +20,9 @@
 						<ul>
 							<li><a href="/">Home</a></li>
 							<li class="separator">|</li>
-							<li><a href="new-game.aspx">New Game</a></li>
+							<li><a href="/new-game.aspx">New Game</a></li>
+							<li class="separator">|</li>
+							<li><a href="/matches.aspx">Matches</a></li>
 						</ul>
 					</nav>
 
